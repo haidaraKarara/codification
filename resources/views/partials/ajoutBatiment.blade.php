@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<section class="content" v-show="affCreeBatiment">
+<section class="content">
       <!-- Formulaire de création de batiment -->
         
         <section class="content-header">

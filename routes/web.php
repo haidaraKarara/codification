@@ -21,4 +21,5 @@ Auth::routes();
 Route::get('/home','AgentController@index')->name('home');
 Route::post('/home/creer-batiment','AgentController@createBatiment')->name('createBatiment');
 Route::get('/home/creer-batiment','AgentController@afficheFormCreateBati')->name('afficheFormCreateBati');
-
+Route::get('/home/ajout-evenement','EvenementController@index')->name('afficheFormCreateEvenement');
+Route::post('/home/ajout-evenement','EvenementController@createEvenement')->name('ajoutEvenement');
