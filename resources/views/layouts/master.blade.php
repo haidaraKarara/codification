@@ -144,8 +144,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i>Afficher</a></li>
-            <li><a href="{{route('afficheFormCreateBati')}}" @click="afficherCreerBatiment()"><i class="fa fa-circle-o"></i> Ajouter</a></li>
+            <li><a href="{{route('showBatiment')}}"><i class="fa fa-circle-o"></i>Afficher</a></li>
+            <li><a href="{{route('afficheFormCreateBati')}}"><i class="fa fa-circle-o"></i> Ajouter</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Supprimer</a></li>
           </ul>
         </li>
@@ -237,9 +237,9 @@
   </aside>
   
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper ">
     <!-- Content Header (Page header) -->
-
+    
     <!-- Main content -->
     @yield('content')
   </div>
@@ -253,6 +253,13 @@
     </footer>
 </div>
   <!-- ./wrapper -->
+
   <script src="{{ asset('js/app.js')}}"></script>
 </body>
 </html>
+<!-- 
+
+
+
+  
+ -->

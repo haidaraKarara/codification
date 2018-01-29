@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\TransferException;
 
 class AgentController extends Controller
 {
@@ -18,11 +19,13 @@ class AgentController extends Controller
      *
      * @return void
      */
-    public function __construct(Client $client)
+    public function __construct()
     {
         $this->middleware('auth');
-        // $this->user = $client;
-        // $this->response = $this->user->get('localhost:8090/batiments/');
+        $this->user = new Client();
+        $this->response = $this->user->get('http://localhost:8090/batiments');
+        $this->body = $this->response->getBody();
+        $this->body = json_decode($this->body);
     }
 
     /**
@@ -56,14 +59,13 @@ class AgentController extends Controller
     {
         try
         {
-            $this->body = $this->response->getBody();
-            $this->body = json_decode($this->body);
-            return view('home',['agent' => $this->body]);
+            return view('partials/showBatiment',['batiments' => $this->body ]);
  
         }
-        catch(RequestException $ex)
+        catch(RequestException $e)
         {
-            return redirect()->route('/',['error' => $ex]);
+            // return redirect()->route('home',['error' => $e->getRequest()]);
+            return response('Merci');
         }
        
     }
