@@ -24,3 +24,5 @@ Route::get('/home/creer-batiment','AgentController@afficheFormCreateBati')->name
 Route::get('/home/liste-batiment','AgentController@showBatiment')->name('showBatiment');
 Route::get('/home/ajout-evenement','EvenementController@index')->name('afficheFormCreateEvenement');
 Route::post('/home/ajout-evenement','EvenementController@createEvenement')->name('ajoutEvenement');
+Route::get('/home/supprimer-batiment','AgentController@showFormDeleteBatiment')->name('showFormDeleteBatiment');
+Route::post('/home/supprimer-batiment','AgentController@deleteBatiment')->name('deleteBatiment');

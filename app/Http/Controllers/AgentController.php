@@ -23,16 +23,15 @@ class AgentController extends Controller
     {
         $this->middleware('auth');
         $this->user = new Client();
-        $this->response = $this->user->get('http://localhost:8090/batiments');
+    }
+    public function recupBatiments()
+    {
+        $this->response = $this->user->get('https://codificationesp.herokuapp.com/api/Batiments');
         $this->body = $this->response->getBody();
         $this->body = json_decode($this->body);
+        return $this->body;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('layouts/master',['message' => $this->message]);
@@ -43,64 +42,44 @@ class AgentController extends Controller
         return view('partials/ajoutBatiment',['message' => $this->message]);
     }
     
-    public function createBatiment()
+    public function createBatiment(Request $req)
     {
+        $req = $req->input('batiment');
+        $this->user->post('https://codificationesp.herokuapp.com/api/Batiments',
+        ['body' => [
+            'nombatiment' => $req          
+        ]]);
         $this->message = 'Batiment créé avec succès';
         return view('partials/ajoutBatiment',['message' => $this->message]);
     }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
     
     public function showBatiment()
     {
+        $batiments = $this->recupBatiments();
         try
         {
-            return view('partials/showBatiment',['batiments' => $this->body ]);
+            return view('partials/showBatiment',['batiments' => $batiments]);
  
         }
         catch(RequestException $e)
         {
-            // return redirect()->route('home',['error' => $e->getRequest()]);
-            return response('Merci');
-        }
-       
+            return redirect()->route('home',['error' => 'erreur']);
+            // return response('Merci');
+        }       
+    }
+    //Suppression
+    public function showFormDeleteBatiment()
+    {
+        $batiments = $this->recupBatiments();
+        return view('partials/deleteBatiment',['message' => $this->message,'batiments' => $batiments]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function deleteBatiment(Request $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $request = $request->input('batiment');
+        $this->response = $this->user->delete('https://codificationesp.herokuapp.com/api/Batiments/'.$request);
+        $batiments = $this->recupBatiments();
+        $this->message = 'Batiment supprimé avec succès';
+        return view('partials/deleteBatiment',['message' => $this->message, 'batiments' => $batiments]);
     }
 }

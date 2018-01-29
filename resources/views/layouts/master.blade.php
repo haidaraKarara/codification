@@ -8,7 +8,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   
   <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
   <!-- Google Font -->
  <!--  <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
@@ -126,7 +126,7 @@
         <li class="header">Administration</li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-bar-chart" aria-hidden="true"></i> <span>Statistiques</span>
+            <i class="far fa-chart-bar" aria-hidden="true"></i> <span>Statistiques</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -137,7 +137,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-home" aria-hidden="true"></i>
+            <i class="fas fa-home" aria-hidden="true"></i>
             <span>Gestion Batiment</span>
             <span class="pull-right-container">
               <span class="label label-primary pull-right">3</span>
@@ -146,7 +146,7 @@
           <ul class="treeview-menu">
             <li><a href="{{route('showBatiment')}}"><i class="fa fa-circle-o"></i>Afficher</a></li>
             <li><a href="{{route('afficheFormCreateBati')}}"><i class="fa fa-circle-o"></i> Ajouter</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Supprimer</a></li>
+            <li><a href="{{route('showFormDeleteBatiment')}}"><i class="fa fa-circle-o"></i> Supprimer</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -164,7 +164,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-ils"></i>
+            <i class="fas fa-bars"></i>
             <span>Gestion Couloir</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -205,29 +205,22 @@
             <!-- Calendar -->
             <div class="box box-solid bg-blue-gradient">
               <div class="box-header ui-sortable-handle" style="cursor: move;">
-                <i class="fa fa-calendar"></i>
+                <i class="far fa-calendar-alt"></i>
                 <!-- tools box -->
                 <div class="pull-right box-tools">
                   <!-- button with a dropdown -->
                   <div class="btn-group">
                     <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <i class="fa fa-bars"></i></button>
+                      <i class="fa fa-plus"></i></button>
                     <ul class="dropdown-menu pull-right" role="menu">
-                      <li><a href="{{route('afficheFormCreateEvenement')}}">Nouveau Evenement</a></li>
-                      <li><a href="#">Suppr Evenement</a></li>
+                      <li><a href="{{route('afficheFormCreateEvenement')}}">Nouvelle codification</a></li>
+                      <!-- <li><a href="#">Fermer codification</a></li> -->
                     </ul>
                   </div>
-                  <button type="button" class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
-                  </button>
                 </div>
                 <!-- /. tools -->
               </div>
-              <!-- /.box-header -->
-              <div class="box-body no-padding" style="">
-                <!--The calendar -->
-                <div id="calendar" style="width: 100%"><div class="datepicker datepicker-inline"><div class="datepicker-days" style=""><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">Janvier 2018</th><th class="next">»</th></tr><tr><th class="dow">Su</th><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th></tr></thead><tbody><tr><td class="old day" data-date="1514678400000">31</td><td class="day" data-date="1514764800000">1</td><td class="day" data-date="1514851200000">2</td><td class="day" data-date="1514937600000">3</td><td class="day" data-date="1515024000000">4</td><td class="day" data-date="1515110400000">5</td><td class="day" data-date="1515196800000">6</td></tr><tr><td class="day" data-date="1515283200000">7</td><td class="day" data-date="1515369600000">8</td><td class="day" data-date="1515456000000">9</td><td class="day" data-date="1515542400000">10</td><td class="day" data-date="1515628800000">11</td><td class="day" data-date="1515715200000">12</td><td class="day" data-date="1515801600000">13</td></tr><tr><td class="day" data-date="1515888000000">14</td><td class="day" data-date="1515974400000">15</td><td class="day" data-date="1516060800000">16</td><td class="day" data-date="1516147200000">17</td><td class="day" data-date="1516233600000">18</td><td class="day" data-date="1516320000000">19</td><td class="day" data-date="1516406400000">20</td></tr><tr><td class="day" data-date="1516492800000">21</td><td class="day" data-date="1516579200000">22</td><td class="day" data-date="1516665600000">23</td><td class="day" data-date="1516752000000">24</td><td class="day" data-date="1516838400000">25</td><td class="day" data-date="1516924800000">26</td><td class="day" data-date="1517011200000">27</td></tr><tr><td class="day" data-date="1517097600000">28</td><td class="day" data-date="1517184000000">29</td><td class="day" data-date="1517270400000">30</td><td class="day" data-date="1517356800000">31</td><td class="new day" data-date="1517443200000">1</td><td class="new day" data-date="1517529600000">2</td><td class="new day" data-date="1517616000000">3</td></tr><tr><td class="new day" data-date="1517702400000">4</td><td class="new day" data-date="1517788800000">5</td><td class="new day" data-date="1517875200000">6</td><td class="new day" data-date="1517961600000">7</td><td class="new day" data-date="1518048000000">8</td><td class="new day" data-date="1518134400000">9</td><td class="new day" data-date="1518220800000">10</td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2018</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="month focused">Jan</span><span class="month">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month">May</span><span class="month">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2010-2019</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2009</span><span class="year">2010</span><span class="year">2011</span><span class="year">2012</span><span class="year">2013</span><span class="year">2014</span><span class="year">2015</span><span class="year">2016</span><span class="year">2017</span><span class="year focused">2018</span><span class="year">2019</span><span class="year new">2020</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-decades" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2000-2090</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="decade old">1990</span><span class="decade">2000</span><span class="decade focused">2010</span><span class="decade">2020</span><span class="decade">2030</span><span class="decade">2040</span><span class="decade">2050</span><span class="decade">2060</span><span class="decade">2070</span><span class="decade">2080</span><span class="decade">2090</span><span class="decade new">2100</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-centuries" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2000-2900</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="century old">1900</span><span class="century focused">2000</span><span class="century">2100</span><span class="century">2200</span><span class="century">2300</span><span class="century">2400</span><span class="century">2500</span><span class="century">2600</span><span class="century">2700</span><span class="century">2800</span><span class="century">2900</span><span class="century new">3000</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div></div></div>
-              </div>
-              <!-- /.box-body -->
+              <!-- /.box-body
           </section>
            
 <!-- Fin calendrier -->
@@ -253,7 +246,7 @@
     </footer>
 </div>
   <!-- ./wrapper -->
-
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   <script src="{{ asset('js/app.js')}}"></script>
 </body>
 </html>

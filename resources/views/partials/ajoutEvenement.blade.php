@@ -5,6 +5,7 @@
         <h1>
             Planifier une nouvelle codification
         </h1>
+        <p style="margin-top:5px; margin-left:25px;"><i class="far fa-calendar-alt fa-7x"></i></p>
         <ol class="breadcrumb">
         <li><a href="{{route('home')}}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Calendrier</li>
@@ -24,7 +25,7 @@
             <input type="date"  name="fermeture" class="form-control" id="pwd" required placeholder="Nombre d'étage">
           </div>
           <button type="submit" class="btn btn-default">Valider</button>
-        </form>
+        </form>          
       </div>
     </div>
     @if($message != "")
