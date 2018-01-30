@@ -159,7 +159,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{route('showFormAjoutEtage')}}"><i class="fa fa-circle-o"></i> Ajouter</a></li>
-            <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Supprimer</a></li>
+            <li><a href="{{route('showFormDeleteEtage')}}"><i class="fa fa-circle-o"></i> Supprimer</a></li>
           </ul>
         </li>
         <li class="treeview">

@@ -31,3 +31,5 @@ Route::post('/home/supprimer-batiment','AgentController@deleteBatiment')->name('
 //Les étages
 Route::get('/home/ajout-etage','EtageController@showFormAjoutEtage')->name('showFormAjoutEtage');
 Route::post('/home/ajout-etage','EtageController@createEtage')->name('createEtage');
+Route::get('/home/supprimer-etage','EtageController@showFormDeleteEtage')->name('showFormDeleteEtage');
+Route::post('/home/supprimer-etage','EtageController@deleteEtage')->name('deleteEtage');

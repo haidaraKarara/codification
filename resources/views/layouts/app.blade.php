@@ -12,6 +12,18 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+    body
+    {
+        background-color: #fff;
+        background-image: url("{{asset('images/logo_coud.png')}}");
+        background-repeat:no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+        background-size: 700px 1000px;
+        background-color: #F4F9FA;
+    }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -29,7 +41,10 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        <!-- {{ config('app.name', 'Laravel') }} -->
+                        <span class="logo-lg">
+                            <img src="{{asset('images/logo_coud.png')}}" style="width: 100px;" class="img-circle" alt="Image COUD">
+                        </span>
                     </a>
                 </div>
 
@@ -43,8 +58,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}">Connexion</a></li>
+                            <!-- <li><a href="{{ route('register') }}">Register</a></li> -->
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
