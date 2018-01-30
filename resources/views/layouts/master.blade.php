@@ -8,7 +8,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   
   <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
-  <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Google Font -->
  <!--  <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
@@ -158,7 +158,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Ajouter</a></li>
+            <li><a href="{{route('showFormAjoutEtage')}}"><i class="fa fa-circle-o"></i> Ajouter</a></li>
             <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Supprimer</a></li>
           </ul>
         </li>
