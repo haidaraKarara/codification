@@ -34,7 +34,7 @@ class AgentController extends Controller
 
     public function index()
     {
-        return view('layouts/master',['message' => $this->message]);
+        return view('home');
     }
 
     public function afficheFormCreateBati()
