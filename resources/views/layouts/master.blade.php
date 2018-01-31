@@ -21,9 +21,9 @@
     <!-- Logo -->
     <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-lg">
-          <img src="{{asset('images/logo_coud.png')}}" style="width: 160px;" class="img-circle" alt="Image COUD">
-        </span>
+          <span class="logo-lg">
+            <img src="{{asset('images/logo_coud.png')}}" style="width: 160px;" class="img-circle" alt="Image COUD">
+          </span>
       <!-- logo for regular state and mobile devices -->
     </a>
 
@@ -171,8 +171,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> Ajouter</a></li>
-            <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Supprimer</a></li>
+            <li><a href="{{route('choixBatiment')}}"><i class="fa fa-circle-o"></i> Ajouter</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Supprimer</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -183,20 +183,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> Ajouter</a></li>
+            <li><a href="{{route('chambreChoixBatiment')}}"><i class="fa fa-circle-o"></i> Ajouter</a></li>
             <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Supprimer</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Gestion Position</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i>Ajouter</a></li>
-            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Supprimer</a></li>
           </ul>
         </li>
         <!-- Calendrier génial -->

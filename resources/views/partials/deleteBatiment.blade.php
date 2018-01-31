@@ -33,14 +33,15 @@
       </div>
     </div>
     @if($message != "")
-        <div class="row" style="margin-top:20px;">
-            <div class="col-sm-6 col-sm-offset-2">
-                <div class="alert alert-success alert-dismissable">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close"><i class="fa fa-window-close"></i></a>
-                    {{$message}}
-                </div>    
-            </div>
+    <div class="row" style="margin-top:20px;">
+        <div class="col-sm-6 col-sm-offset-2">
+            <div class="alert alert-success alert-dismissable">
+                <i class="far fa-thumbs-up fa-4x"></i>
+                <a href="#" class="close" data-dismiss="alert" aria-label="close"><i class="fa fa-window-close"></i></a>
+                {{$message}}
+            </div>    
         </div>
+    </div>
       @endif
     </section>
 @endsection

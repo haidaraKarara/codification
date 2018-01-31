@@ -28,13 +28,15 @@ class EtageController extends Controller
     public function showFormAjoutEtage()
     {
         $batiments = $this->recupBatiments();
-        return view('partials/ajoutEtage',['message' => $this->message,'batiments' => $batiments]);
+        $etages = $this->recupEtages();
+        return view('partials/ajoutEtage',['message' => $this->message,'batiments' => $batiments,'etages' => $etages]);
     }
 
     public function createEtage(Request $req)
     {
         $input_numEtage = $req->input('numEtage');
         $input_idBat = $req->input('etage');
+        $etages = $this->recupEtages();
         $this->user->post('https://codificationesp.herokuapp.com/api/Etages',
         ['body' => [
             'numetage' => $input_numEtage,
@@ -42,21 +44,30 @@ class EtageController extends Controller
         ]]);
         $batiments = $this->recupBatiments();
         $this->message = 'Etage créé avec succès';
-        return view('partials/ajoutEtage',['message' => $this->message,'batiments' => $batiments]);
+        return view('partials/ajoutEtage',['message' => $this->message,'batiments' => $batiments,'etages' => $etages]);
     }
     //Suppression
-    public function deleteEtage()
+    public function deleteEtageChoixEtage(Request $req)
     {
         $batiments = $this->recupBatiments();
-        $etages = $this->recupEtages();
-        $this->message = 'Batiment supprimé avec succès';
-        return view('partials/deleteEtage',['message' => $this->message,'batiments' => $batiments,'etages' => $etages]);
+        $req = $req->input('batiment');
+        $etages = $this->recupEtagesId($req);
+        return view('partials/deleteEtageChoixEtage',['etages' => $etages]);
     }
+
+    public function deleteEtage(Request $req)
+    {
+        $etage= $req->input('etage');
+        $this->user->delete('https://codificationesp.herokuapp.com/api/Etages/'.$etage);
+        $message = "L'étage a été supprimée avec succès !";
+        $fin = "Suppression terminée";
+        return view('partials/deleteEtage',['message' => $message,'fin' => $fin]);
+    }
+    
     public function showFormDeleteEtage()
     {
         $batiments = $this->recupBatiments();
-        $etages = $this->recupEtages();
-        return view('partials/deleteEtage',['message' => $this->message,'batiments' => $batiments,'etages' => $etages]);
+        return view('partials/deleteEtageChoixBatiment',['batiments' => $batiments]);
     }
     // Fin Suppression
     public function recupBatiments()
@@ -74,9 +85,9 @@ class EtageController extends Controller
         $this->body = json_decode($this->body);
         return $this->body;
     }
-    public function recupIdBatiment()
+    public function recupEtagesId($id)
     {
-        $this->response = $this->user->get('https://codificationesp.herokuapp.com/api/Batiments');
+        $this->response = $this->user->get('https://codificationesp.herokuapp.com/api/Batiments/'.$id.'/etages');
         $this->body = $this->response->getBody();
         $this->body = json_decode($this->body);
         return $this->body;

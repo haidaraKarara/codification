@@ -32,4 +32,15 @@ Route::post('/home/supprimer-batiment','AgentController@deleteBatiment')->name('
 Route::get('/home/ajout-etage','EtageController@showFormAjoutEtage')->name('showFormAjoutEtage');
 Route::post('/home/ajout-etage','EtageController@createEtage')->name('createEtage');
 Route::get('/home/supprimer-etage','EtageController@showFormDeleteEtage')->name('showFormDeleteEtage');
-Route::post('/home/supprimer-etage','EtageController@deleteEtage')->name('deleteEtage');
+Route::post('/home/supprimer-etage-choix-batiment','EtageController@deleteEtageChoixEtage')->name('deleteChoixEtage');
+ Route::post('/home/supprimer-etage-choix-etage','EtageController@deleteEtage')->name('deleteEtage');
+
+//Les couloirs
+Route::get('/home/ajout-couloir-choix-batiment','CouloirController@choisirBatiment')->name('choixBatiment');
+Route::post('/home/ajout-couloir-choix-etage','CouloirController@choisirEtage')->name('choixEtage');
+Route::post('/home/ajout-couloir','CouloirController@createCouloir')->name('createCouloir');
+//Les chambres
+Route::get('/home/ajout-chambre-choix-batiment','ChambreController@choisirBatiment')->name('chambreChoixBatiment');
+Route::post('/home/ajout-chambre-choix-etage','ChambreController@choisirEtage')->name('chambreChoixEtage');
+Route::post('/home/ajout-chambre-choix-couloir','ChambreController@choisirCouloir')->name('chambreChoixCouloir');
+Route::post('/home/ajout-chambre','ChambreController@createChambre')->name('createChambre');
